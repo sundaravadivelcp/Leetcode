@@ -13,15 +13,9 @@ public:
         
         int i=0; 
         while(truckSize > 0 && i < boxTypes.size()){
-            if(truckSize > boxTypes[i][0]){
-                
-                sum += boxTypes[i][0] * boxTypes[i][1];
-                truckSize -= boxTypes[i][0];
-            }
-            else{
-                sum += truckSize * boxTypes[i][1];
-                truckSize = 0;
-            }
+            int m = min(truckSize , boxTypes[i][0]);
+            sum += m * boxTypes[i][1];
+            truckSize -= m;
             i++;
         }
         
