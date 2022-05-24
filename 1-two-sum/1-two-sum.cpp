@@ -14,7 +14,7 @@ public:
             auto it = m.find(target - nums[i]);
             if(it != m.end() && it->second != i){
                 ans.push_back(i);
-                ans.push_back(m[target-nums[i]]);
+                ans.push_back(it->second);
                 break;
             }
         }
