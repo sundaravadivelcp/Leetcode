@@ -8,7 +8,6 @@ public:
     int maximumUnits(vector<vector<int>>& boxTypes, int truckSize) {
         int sum = 0;
         
-        
         sort(boxTypes.begin(), boxTypes.end(), sortcol);
         
         int i=0; 
