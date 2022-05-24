@@ -1,15 +1,12 @@
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
-        int min = INT_MAX, max =0;
-        int n = prices.size();
-        for(int i=0; i<n; i++){
-            if(prices[i] < min){
-                min = prices[i];
-            } else if(max < prices[i] - min){
-                max = prices[i] - min;
-            }
+    
+        int ans=0,mn=INT_MAX;
+        for(auto x:prices){
+            mn=min(mn,x); // min price so far
+            ans=max(ans,x-mn); // overall profit if it sold today
         }
-        return max;
+        return ans;
     }
 };
