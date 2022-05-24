@@ -11,7 +11,8 @@ public:
         }
         
         for(int i=0;i<nums.size();i++){
-            if(m.find(target - nums[i]) != m.end() && m.find(target - nums[i])->second != i){
+            auto it = m.find(target - nums[i]);
+            if(it != m.end() && it->second != i){
                 ans.push_back(i);
                 ans.push_back(m[target-nums[i]]);
                 break;
