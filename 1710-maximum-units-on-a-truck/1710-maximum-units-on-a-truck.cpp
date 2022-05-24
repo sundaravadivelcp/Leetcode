@@ -1,8 +1,4 @@
 class Solution {
-private:
-    static bool cmp(pair<int,int>a, pair<int,int>b){
-        return a.second>b.second;
-    }
 public:
 //     static bool sortcol(const vector<int>& v1, const vector<int>& v2)
 //     {
