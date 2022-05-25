@@ -11,33 +11,40 @@
 class Solution {
 public:
     int pairSum(ListNode* head) {
-        ListNode* curNode = head;
-        ListNode* curNode2 = head;
+        ListNode* slow = head;
+        ListNode* fast = head;
         
-        
-        
-        if(curNode == NULL)
-            return 0;
-        
-        vector<int> v;
-        
-        while(curNode != NULL){
-            v.push_back(curNode->val);
-            curNode = curNode->next;
-            // if(curNode != NULL)
-            //     curNode2 = curNode2->next->next;
+        while(fast){
+            slow = slow->next;
+            fast = fast->next->next;
         }
         
-        int max = 0, n = v.size();
+        ListNode* cur = slow;
+        ListNode* prev = nullptr;
+        ListNode* next = nullptr;
         
-        for(int i=0;i<n/2;i++){
-            int sum = 0;
-            sum = v[i] + v[n-i-1];
-            if(max < sum)
-               max = sum;
+        
+        while(cur){
+            next = cur->next;
+            cur->next = prev;
+            prev = cur;
+            cur = next;
         }
         
-        return max;
+        cur = head;
         
+        //print
+        while(cur){
+            cout<<cur->val<< " ";
+            cur = cur->next;
+        }
+        
+        int m = 0;
+        while(prev){
+            m = max(m,  head->val + prev->val);
+            prev = prev->next;
+            head = head->next;
+        }
+        return m;
     }
 };
