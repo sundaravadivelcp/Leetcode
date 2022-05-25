@@ -21,21 +21,18 @@ public:
         
         vector<int> v;
         
-        int count = 0;
-        
         while(curNode != NULL){
             v.push_back(curNode->val);
             curNode = curNode->next;
             // if(curNode != NULL)
             //     curNode2 = curNode2->next->next;
-            count++;
         }
         
-        int max = 0;
+        int max = 0, n = v.size();
         
-        for(int i=0;i<v.size()/2;i++){
+        for(int i=0;i<n/2;i++){
             int sum = 0;
-            sum = v[i] + v[v.size()-i-1];
+            sum = v[i] + v[n-i-1];
             if(max < sum)
                max = sum;
         }
