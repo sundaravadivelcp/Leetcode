@@ -23,22 +23,33 @@ public:
         
         int count = 0;
         
-        while(curNode != NULL){
+        while(curNode2 != NULL){
             v.push_back(curNode->val);
             curNode = curNode->next;
-            // if(curNode != NULL)
-            //     curNode2 = curNode2->next->next;
+            if(curNode != NULL)
+                curNode2 = curNode2->next->next;
             count++;
         }
         
-        int max = 0;
         
-        for(int i=0;i<v.size()/2;i++){
-            int sum = 0;
-            sum = v[i] + v[v.size()-i-1];
-            if(max < sum)
-               max = sum;
+        int max = 0;
+        while(curNode != NULL){
+            v[count-1] += curNode->val;
+            if(max < v[count-1])
+                max = v[count-1];
+            curNode = curNode->next;
+            count--;
         }
+        
+        
+//         int max = 0;
+        
+//         for(int i=0;i<v.size()/2;i++){
+//             int sum = 0;
+//             sum = v[i] + v[v.size()-i-1];
+//             if(max < sum)
+//                max = sum;
+//         }
         
         return max;
         
