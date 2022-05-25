@@ -2,32 +2,32 @@ class Solution {
 public:
     vector<int> killProcess(vector<int>& pid, vector<int>& ppid, int kill) {
         vector<int> ans;
+        queue<int> q;
         
-        stack<int> s;
+        unordered_map<int, vector<int>> m;
         
-        unordered_map<int, int> m;
-        
-        s.push(kill);
-        
-        ans.push_back(kill);
-        
-        for(auto& parent : ppid){
-            m[parent]++;
+        for(int i=0; i< ppid.size();i++){
+            m[ppid[i]].push_back(pid[i]);
         }
         
-        int n = ppid.size(), j = 0, count = 1;
-        while(!s.empty()){
-            kill = s.top();
-            s.pop();
-            for(int i=0; i<n; i++){
-                if(ppid[i] == kill){
-                    ans.push_back(pid[i]);
-                    if(m.count(pid[i])){
-                        s.push(pid[i]);
-                    }
+        q.push(kill);
+        
+        while(!q.empty()){
+            int cur = q.front();
+            
+            if(m.find(cur) != m.end()){
+                vector<int> add = m[q.front()];
+            
+                for(int i=0; i<add.size();i++){
+                    q.push(add[i]);
                 }
             }
+            q.pop();
+            ans.push_back(cur);
+            
         }
+        
+        
         return ans;
     }
 };
