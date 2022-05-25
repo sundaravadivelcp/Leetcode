@@ -5,7 +5,7 @@ public:
         
         stack<int> s;
         
-        map<int, int> m;
+        unordered_map<int, int> m;
         
         s.push(kill);
         
