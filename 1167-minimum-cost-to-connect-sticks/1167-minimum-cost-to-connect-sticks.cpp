@@ -1,15 +1,26 @@
 class Solution {
 public:
     int connectSticks(vector<int>& sticks) {
-        priority_queue<int, vector<int>, greater<int>> qu(sticks.begin(), sticks.end());
-        int result = 0;
-        while (qu.size() > 1) {
-            int a = qu.top(); qu.pop();
-            int b = qu.top(); qu.pop();
-            result += a + b;
-            qu.push(a + b);
+        priority_queue <int, vector<int>, greater<int> > pq;
+        int n = sticks.size();
+        if(n==1) return 0;
+        if(n==2) return sticks[0] + sticks[1];
+
+        long long int sum = 0, cost = 0;
+        for(int i=0;i<sticks.size();i++){
+            pq.push(sticks[i]);
         }
-        return result;
+        
+        while(pq.size()>1){
+            int n1 = pq.top();
+            pq.pop();
+            int n2 = pq.top();
+            pq.pop();
+            cost += n1 + n2;
+            
+            pq.push(n1 + n2);
+        }
+        return cost;
             
     }
 };
