@@ -13,7 +13,6 @@ public:
                 }
             }
         }
-        cout<<cur.first<<" "<<cur.second<<endl;
         q.push({cur,count});
         count++;
         
