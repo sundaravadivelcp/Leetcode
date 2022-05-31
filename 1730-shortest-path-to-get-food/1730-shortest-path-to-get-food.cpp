@@ -16,8 +16,7 @@ public:
         q.push({cur,count});
         count++;
         
-        vector<vector<int>> visited( n , vector<int> (m, 0)); 
-        visited[cur.first][cur.second] = 1;
+        grid[cur.first][cur.second] = 'X';
         
         while(!q.empty()){
             cur = q.front().first;
@@ -30,21 +29,25 @@ public:
                 break;
             }
             
-            if((x+1 < n && x+1 >=0 && y >= 0 && y < m) && grid[x+1][y] != 'X' &&  visited[x+1][y] == 0 ){
-                visited[x+1][y] = 1;
+            if((x+1 < n && x+1 >=0 && y >= 0 && y < m) && grid[x+1][y] != 'X'){
+                if(grid[x+1][y] !='#')
+                    grid[x+1][y]  = 'X';
                 q.push({{x+1,y},c+1});
             }
-            if(( x >= 0 && x < n && y+1 >= 0 && y+1 < m) && grid[x][y+1] != 'X' && visited[x][y+1] == 0 ){
-                visited[x][y+1] = 1;
+            if(( x >= 0 && x < n && y+1 >= 0 && y+1 < m) && grid[x][y+1] != 'X'){
+                if(grid[x][y+1] !='#')
+                    grid[x][y+1]= 'X';
                 q.push({{x,y+1},c+1});
             }
             
-            if((x-1 >= 0 && x-1 <n && y >= 0 && y < m) && grid[x-1][y] != 'X' && visited[x-1][y] == 0 ){
-                visited[x-1][y] = 1;
+            if((x-1 >= 0 && x-1 <n && y >= 0 && y < m) && grid[x-1][y] != 'X'){
+                if(grid[x-1][y] !='#')
+                    grid[x-1][y] = 'X';
                 q.push({{x-1,y},c+1});
             }    
-            if(( x >= 0 &&  x<n && y-1 >= 0 && y-1 < m) && grid[x][y-1] != 'X' && visited[x][y-1] == 0 ){
-                visited[x][y-1] = 1;
+            if(( x >= 0 &&  x<n && y-1 >= 0 && y-1 < m) && grid[x][y-1] != 'X'){
+                if(grid[x][y-1] !='#')
+                    grid[x][y-1] = 'X';
                 q.push({{x,y-1},c+1});
             }
         }
