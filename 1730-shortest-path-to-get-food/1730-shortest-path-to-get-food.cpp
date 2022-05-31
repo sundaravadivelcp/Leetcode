@@ -25,7 +25,6 @@ public:
             int c = q.front().second;
             q.pop();
             int x = cur.first,y = cur.second;
-            cout<<cur.first<<" "<<cur.second<<" "<<c<<endl;
             if(grid[x][y] == '#'){
                 found = 1;
                 return c;
@@ -37,11 +36,9 @@ public:
                 q.push({{x+1,y},c+1});
             }
             if(( x >= 0 && x < n && y+1 >= 0 && y+1 < m) && grid[x][y+1] != 'X' && visited[x][y+1] == 0 ){
-                cout<<"here1";
                 visited[x][y+1] = 1;
                 q.push({{x,y+1},c+1});
             }
-            cout<<"here1";
             
             if((x-1 >= 0 && x-1 <n && y >= 0 && y < m) && grid[x-1][y] != 'X' && visited[x-1][y] == 0 ){
                 visited[x-1][y] = 1;
