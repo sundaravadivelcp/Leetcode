@@ -18,7 +18,7 @@ public:
     }
     
     int deleteAndEarn(vector<int>& nums) {
-        vector<int> a(20001,0);
+        vector<int> a(10001,0);
         int max = INT_MIN;
         for(int i=0;i<nums.size();i++){
             a[nums[i]] += nums[i];
