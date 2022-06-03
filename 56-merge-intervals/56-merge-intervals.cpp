@@ -15,8 +15,7 @@ public:
         
         for(int i=1; i<intervals.size();i++){
             if(intervals[i][0] <= e ){
-                if(intervals[i][1] > e)
-                    e = intervals[i][1];
+                e = max(e,intervals[i][1]);
             }
             else {
                 vector<int> v;
