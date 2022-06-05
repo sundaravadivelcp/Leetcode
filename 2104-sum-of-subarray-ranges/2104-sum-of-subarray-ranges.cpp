@@ -6,7 +6,7 @@ public:
         for(int i = 0; i< nums.size(); i++){
             mini = nums[i];
             maxi = nums[i];
-            for(int j = i ; j < nums.size(); j++){
+            for(int j = i + 1 ; j < nums.size(); j++){
                 if(mini > nums[j])
                     mini = nums[j];
                 if(maxi < nums[j])
