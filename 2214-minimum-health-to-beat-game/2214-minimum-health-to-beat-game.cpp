@@ -8,8 +8,6 @@ public:
                 if(m<damage[i]){
                     m = max(m,damage[i]);
                 }
-                if(m>=armor)
-                    break;
             }
             ans -= min(m,armor);
             
