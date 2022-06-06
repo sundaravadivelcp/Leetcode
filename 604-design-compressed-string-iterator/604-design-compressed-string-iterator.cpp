@@ -21,7 +21,6 @@ public:
             if(isalpha(s[ptr])){
                 c = s[ptr];
                 ptr++;
-                rem = 0;
                 while(isdigit(s[ptr])){
                     rem = rem*10 + ( s[ptr] - '0');
                     ptr++;
