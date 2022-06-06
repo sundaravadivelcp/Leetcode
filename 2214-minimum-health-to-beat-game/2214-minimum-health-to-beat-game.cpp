@@ -5,19 +5,12 @@ public:
         int m = 0,mi = -1,f=0;
         if(armor > 0){
             for(int i=0;i<damage.size();i++){
-                if(damage[i] >= armor){
-                    damage[i] -= armor;
-                    f = 1;
-                    break;
-                }
                 if(m<damage[i]){
                     m = max(m,damage[i]);
                     mi = i;
                 }
             }
-            if(!f){
-                ans -= m;
-            }
+            ans -= min(m,armor);
             
         }
         
