@@ -9,6 +9,8 @@ public:
                     m = max(m,damage[i]);
                     mi = i;
                 }
+                if(m>=armor)
+                    break;
             }
             ans -= min(m,armor);
             
