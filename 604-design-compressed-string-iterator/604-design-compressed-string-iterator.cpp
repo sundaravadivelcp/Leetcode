@@ -26,7 +26,6 @@ public:
                     rem = rem*10 + ( s[ptr] - '0');
                     ptr++;
                 }
-                cout<<c<<" " << rem<<endl; 
             }
         }
         rem--;
