@@ -2,7 +2,7 @@ class Solution {
 public:
     int maxProduct(vector<int>& nums) {
         int f=0, s = 0;
-        for(int num:nums){
+        for(int& num:nums){
             if(f<num){
                 s= f;
                 f = num;
