@@ -26,7 +26,6 @@ public:
     }
 
     double maximumAverageSubtree(TreeNode* root) {
-        int sum = 0, n = 0;
         preorder(root);
         return ans;
     }
