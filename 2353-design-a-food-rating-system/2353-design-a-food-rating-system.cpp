@@ -13,14 +13,14 @@ public:
     
     void changeRating(string food, int newRating) {
         auto cuisine = foodCuisineMap[food];
-        auto it = cuisineFoodMap[cuisine].find({-foodRatingMap[food], food});
+        auto it = cuisineFoodMap[cuisine].find({ -foodRatingMap[food], food });
         cuisineFoodMap[cuisine].erase(it);
         foodRatingMap[food] = newRating;
-        cuisineFoodMap[cuisine].insert({-newRating, food});
+        cuisineFoodMap[cuisine].insert({ -newRating, food });
     }
     
     string highestRated(string cuisine) {
-        return (*(cuisineFoodMap[cuisine].begin())).second;
+        return (*cuisineFoodMap[cuisine].begin()).second;
     }
 };
 
