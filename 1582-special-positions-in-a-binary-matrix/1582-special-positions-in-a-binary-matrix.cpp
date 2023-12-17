@@ -6,8 +6,10 @@ public:
 
         for(int i = 0; i<m; i++){
             for(int j = 0; j<n; j++){
-                rows[i] += mat[i][j];
-                cols[j] += mat[i][j];
+                if(mat[i][j] == 1) {
+                    rows[i]++;
+                    cols[j]++;
+                }
             }
         }
 
