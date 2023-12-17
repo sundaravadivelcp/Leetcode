@@ -1,39 +1,26 @@
 class FoodRatings {
-    unordered_map<string, pair<string,int>> m;
-    unordered_map<string, vector<pair<string, int>>> c;
+    unordered_map<string, int> foodRatingMap;
+    unordered_map<string, string> foodCuisineMap;
+    unordered_map<string, set<pair<int, string>>> cuisineFoodMap;
 public:
     FoodRatings(vector<string>& foods, vector<string>& cuisines, vector<int>& ratings) {
-        int n = foods.size();
-        for(int i =0; i< n; i++){
-            m[foods[i]] = {cuisines[i], ratings[i]};
-            c[cuisines[i]].push_back({foods[i], ratings[i]});
+        for(int i =0; i< foods.size(); i++){
+            foodRatingMap[foods[i]] = ratings[i];
+            foodCuisineMap[foods[i]] = cuisines[i];
+            cuisineFoodMap[cuisines[i]].insert({-ratings[i], foods[i]});
         }
     }
     
     void changeRating(string food, int newRating) {
-        m[food].second = newRating;
-        for(auto & p :  c[m[food].first]){
-            if(p.first == food){
-                p.second = newRating;
-                break;
-            }
-        }
+        auto cuisine = foodCuisineMap[food];
+        auto it = cuisineFoodMap[cuisine].find({-foodRatingMap[food], food});
+        cuisineFoodMap[cuisine].erase(it);
+        foodRatingMap[food] = newRating;
+        cuisineFoodMap[cuisine].insert({-newRating, food});
     }
     
     string highestRated(string cuisine) {
-        int maxR = 0;
-        string maxF = "";
-        for(auto & p :  c[cuisine]){
-            if(maxR < p.second){
-                maxR = p.second;
-                maxF = p.first;
-            } else if(maxR == p.second){
-                if(maxF > p.first){
-                    maxF = p.first;
-                }
-            }
-        }
-        return maxF;
+        return (*(cuisineFoodMap[cuisine].begin())).second;
     }
 };
 
