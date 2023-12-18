@@ -16,7 +16,6 @@ public:
                 l2 = num;
             }
         }
-        cout<<m1<<" "<<m2<<" "<<l1<<" "<<l2<<" "<<endl;
 
         return m1 * m2 - l1 * l2;
     }
