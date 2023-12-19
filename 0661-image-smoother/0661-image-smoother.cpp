@@ -7,12 +7,14 @@ public:
         for(int i =0; i< m; i++){
             for(int j = 0; j< n; j++){
                 int count = 0, sum = 0;
-                for(auto v:dir){
-                    int x = i + v[0], y = j + v[1];
-                    if(x >= 0 && y >= 0 && x < m && y < n){
-                        sum += img[x][y] & 255;
-                        count++;
+                for(int x = i-1; x <= i+1; x++){
+                    for(int y = j-1; y <= j+1; y++){
+                        if(x >= 0 && y >= 0 && x < m && y < n){
+                            sum += img[x][y] & 255;
+                            count++;
+                        }
                     }
+                    
                 }
                 img[i][j] |= ((sum/count)<<8);
             }
