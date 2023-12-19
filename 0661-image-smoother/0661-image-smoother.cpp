@@ -6,12 +6,10 @@ public:
         for(int i =0; i< m; i++){
             for(int j = 0; j< n; j++){
                 int count = 0, sum = 0;
-                for(int x = i-1; x <= i+1; x++){
-                    for(int y = j-1; y <= j+1; y++){
-                        if(x >= 0 && y >= 0 && x < m && y < n){
-                            sum += img[x][y] & 255;
-                            count++;
-                        }
+                for(int x = max(0, i-1); x < min(m, i+2); x++){
+                    for(int y = max(0, j-1); y <min(n, j+2); y++){
+                        sum += img[x][y] & 255;
+                        count++;
                     }
                     
                 }
