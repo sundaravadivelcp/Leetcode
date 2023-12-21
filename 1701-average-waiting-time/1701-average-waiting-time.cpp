@@ -7,8 +7,7 @@ public:
             sum += customers[i][1];
             if(t > customers[i][0]){
                 sum += t - customers[i][0];
-            }
-            if(t < customers[i][0]){
+            } else {
                 t = customers[i][0];
             }
             t += customers[i][1];
