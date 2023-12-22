@@ -2,28 +2,19 @@ class Solution {
 public:
     int maxScore(string s) {
         int n = s.size(), ans = 0;
-        vector<int> zeros(n-1);
-        vector<int> ones(n-1);
+        
+        int ones = count(s.begin(),s.end(), '1');
+        int zeros = 0;
 
-        int count = 0;
-        for(int i = 0; i< n - 1 ; i++){
+        for(int i  = 0; i< n-1; i++){
             if(s[i] == '0'){
-                count++;
+                zeros++;
+            } else {
+                ones--;
             }
-            ones[i] = count;
+            ans = max(ans, zeros+ones);
         }
-
-        count = 0;
-        for(int i = n-1; i>= 1 ; i--){
-            if(s[i] == '1'){
-                count++;
-            }
-            zeros[i-1] = count;
-        }
-
-        for(int i = 0; i< n-1 ; i++){
-            ans = max(ans, zeros[i] + ones[i]);
-        }
+        return ans;
 
         return ans;
     }
