@@ -5,7 +5,7 @@ public:
         int i = 0, j = 0;
         unordered_map<char, int> mp;
 
-        while(i<=j && i< s.size() && j < s.size()){
+        while(j < s.size()){
             mp[s[j]]++;
             j++;
 
