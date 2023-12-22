@@ -7,12 +7,12 @@ public:
         while(j<nums.size()){
             sum += nums[j];
             j++;
+            if(j-i < k){
+                continue;
+            }
             if(j-i > k){
                 sum -= nums[i];
                 i++;
-            }
-            if(j-i < k){
-                continue;
             }
             avg = max(avg, sum/k);
         }
