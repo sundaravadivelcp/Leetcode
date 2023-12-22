@@ -5,19 +5,20 @@ public:
         vector<int> zeros(n-1);
         vector<int> ones(n-1);
 
-        int z = 0, o = 0;
+        int count = 0;
         for(int i = 0; i< n - 1 ; i++){
             if(s[i] == '0'){
-                z++;
+                count++;
             }
-            ones[i] = z;
+            ones[i] = count;
         }
 
+        count = 0;
         for(int i = n-1; i>= 1 ; i--){
             if(s[i] == '1'){
-                o++;
+                count++;
             }
-            zeros[i-1] = o;
+            zeros[i-1] = count;
         }
 
         for(int i = 0; i< n-1 ; i++){
