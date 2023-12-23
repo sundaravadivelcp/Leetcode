@@ -3,17 +3,18 @@ public:
     bool isPathCrossing(string path) {
         unordered_map<char, pair<int,int>> moves = {{'N', {0,-1}},{'E', {1,0}},{'S',{0,1}},{'W',{-1,0}}};
 
-        set<pair<int, int>> visited;
+        unordered_set<string> visited;
         int x = 0, y = 0;
-        visited.insert({x,y});
+        visited.insert("0,0");
 
         for(char c:path){
             x += moves[c].first;
             y += moves[c].second;
-            if(visited.find({x,y}) != visited.end()){
+            string hash = to_string(x) + "," + to_string(y);
+            if(visited.find(hash) != visited.end()){
                 return true;
             }
-            visited.insert({x,y});
+            visited.insert(hash);
         }
         return false;
     }
