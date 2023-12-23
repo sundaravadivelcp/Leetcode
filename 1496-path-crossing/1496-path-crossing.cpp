@@ -7,7 +7,7 @@ public:
         int x = 0, y = 0;
         visited.insert("0,0");
 
-        for(char c:path){
+        for(char& c:path){
             x += moves[c].first;
             y += moves[c].second;
             string hash = to_string(x) + "," + to_string(y);
