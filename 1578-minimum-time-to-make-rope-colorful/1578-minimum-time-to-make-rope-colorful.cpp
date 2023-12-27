@@ -1,25 +1,25 @@
 class Solution {
 public:
     int minCost(string colors, vector<int>& neededTime) {
-        int ans = 0, sum = 0, m = neededTime[0], n = colors.size();
-        char c = colors[0];
-        sum += neededTime[0];
-
-        for(int i = 1; i < n; i++){
-            if(colors[i] == c){
-                sum += neededTime[i];
-                m = max(neededTime[i], m);
-            } else {
-                ans += sum - m; 
-                c = colors[i];
-                m = neededTime[i];
-                sum = m;
+        // totalTime: total time needed to make rope colorful;
+        // currMaxTime: maximum time of a balloon needed in this group.
+        int totalTime = 0, currMaxTime = 0;
+        
+        // For each balloon in the array:
+        for (int i = 0; i < colors.size(); ++i) {
+            // If this balloon is the first balloon of a new group
+            // set the currMaxTime as 0.
+            if (i > 0 && colors[i] != colors[i - 1]) {
+                currMaxTime = 0;
             }
+            
+            // Increment totalTime by the smaller one.
+            // Update currMaxTime as the larger one.
+            totalTime += min(currMaxTime, neededTime[i]);
+            currMaxTime = max(currMaxTime, neededTime[i]);
         }
-        if(sum > neededTime[n-1]){
-            ans += sum - m; 
-        }
-        return ans;
-
+        
+        // Return totalTime as the minimum removal time.
+        return totalTime;
     }
 };
