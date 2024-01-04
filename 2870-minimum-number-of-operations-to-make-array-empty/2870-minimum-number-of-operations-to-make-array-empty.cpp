@@ -12,8 +12,6 @@ public:
             if(freq < 2) return -1;
             if(freq % 3 == 0){
                 ans += freq/3;
-            } else if(freq % 3 == 2){
-                ans += freq/3 + 1;
             } else {
                 ans += freq/3 + 1;
             }
