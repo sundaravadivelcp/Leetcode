@@ -9,7 +9,7 @@ public:
         int ans = 0;
 
         for(auto& [num, freq]:m){
-            if(freq < 2) return -1;
+            if(freq == 1) return -1;
             ans += (freq + 2)/3;
 
         }
