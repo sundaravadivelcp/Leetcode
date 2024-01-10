@@ -12,7 +12,6 @@ class Solution {
 public:
     int leftMostColumnWithOne(BinaryMatrix &binaryMatrix) {
         int rows = binaryMatrix.dimensions()[0], cols = binaryMatrix.dimensions()[1];
-
         int i = 0, j = cols - 1;
 
         while(i<rows && j >= 0){
