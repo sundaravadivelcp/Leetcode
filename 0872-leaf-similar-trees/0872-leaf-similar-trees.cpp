@@ -10,25 +10,25 @@
  * };
  */
 class Solution {
+    string s1,s2;
 public:
-    void dfs(TreeNode* root, vector<int>& v){
+    void dfs(TreeNode* root, string& s){
         if(!root){
             return;
         }
         if(root->left == nullptr && root->right == nullptr){
-            v.push_back(root->val);
+            s += to_string(root->val) + ",";
         }
         
-        dfs(root->left, v);
-        dfs(root->right, v);
+        dfs(root->left, s);
+        dfs(root->right, s);
     }
     
 
     bool leafSimilar(TreeNode* root1, TreeNode* root2) {
-        vector<int> v1,v2;
-        dfs(root1, v1);
-        dfs(root2, v2);
+        dfs(root1, s1);
+        dfs(root2, s2);
 
-        return v1==v2;
+        return s1==s2;
     }
 };
