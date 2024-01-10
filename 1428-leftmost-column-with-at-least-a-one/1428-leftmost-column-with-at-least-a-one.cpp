@@ -11,8 +11,6 @@
 class Solution {
 public:
     int leftMostColumnWithOne(BinaryMatrix &binaryMatrix) {
-        int ans = 101;
-
         int rows = binaryMatrix.dimensions()[0], cols = binaryMatrix.dimensions()[1];
 
         int i = 0, j = cols - 1;
