@@ -13,23 +13,18 @@ public:
     int leftMostColumnWithOne(BinaryMatrix &binaryMatrix) {
         int ans = 101;
 
-        auto v = binaryMatrix.dimensions();
-        int rows = v[0], cols = v[1];
+        int rows = binaryMatrix.dimensions()[0], cols = binaryMatrix.dimensions()[1];
 
         int i = 0, j = cols - 1;
 
         while(i<rows && j >= 0){
             if(binaryMatrix.get(i,j)){
-                ans = min(ans, j);
                 j--;
             } else {
                 i++;
             }
         }
 
-        if(ans == 101){
-            return -1;
-        }
-        return ans;
+        return j == cols - 1? -1: j + 1;
     }
 };
