@@ -10,8 +10,8 @@
  * };
  */
 class Solution {
-public:
     string s1,s2;
+public:
     void dfs(TreeNode* root, string& s){
         if(!root){
             return;
