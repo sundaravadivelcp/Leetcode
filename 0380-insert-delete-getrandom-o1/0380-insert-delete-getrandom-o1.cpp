@@ -1,27 +1,27 @@
 class RandomizedSet {
-    unordered_map<int,int> m;
+    unordered_map<int,int> mp;
     vector<int> v;
 public:
     RandomizedSet() {
     }
     
     bool insert(int val) {
-        if(m.find(val) != m.end()){
+        if(mp.find(val) != mp.end()){
             return false;
         }
         v.push_back(val);
-        m[val] = v.size() - 1;
+        mp[val] = v.size() - 1;
         return true;
     }
     
     bool remove(int val) {
-        if(m.find(val) == m.end()){
+        if(mp.find(val) == mp.end()){
             return false;
         }
-        v[m[val]] = v[v.size() - 1];
-        m[v[v.size() - 1]] = m[val];
+        v[mp[val]] = v.back();
+        mp[v.back()] = mp[val];
         v.pop_back();
-        m.erase(val);
+        mp.erase(val);
         return true;
     }
     
