@@ -2,15 +2,15 @@ class Solution {
 public:
     int calculateTime(string keyboard, string word) {
         int ans = 0, idx = 0;
-        unordered_map<char,int> mp;
+        vector<int> v(26);
 
         for(int i = 0; i<keyboard.size();i++){
-            mp[keyboard[i]] = i;
+            v[keyboard[i] - 'a'] = i;
         }
 
         for(auto& letter:word){
-            ans += abs(mp[letter] - idx);
-            idx = mp[letter];
+            ans += abs(v[letter - 'a'] - idx);
+            idx = v[letter - 'a'];
         }
 
         return ans;
