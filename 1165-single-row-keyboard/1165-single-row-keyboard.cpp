@@ -1,16 +1,16 @@
 class Solution {
 public:
     int calculateTime(string keyboard, string word) {
-        int ans = 0, idx = 0;
-        vector<int> v(26);
+        vector<int> v(26, -1);
 
-        for(int i = 0; i<keyboard.size();i++){
+        for(int i = 0; i<keyboard.length();i++){
             v[keyboard[i] - 'a'] = i;
         }
 
-        for(auto& letter:word){
-            ans += abs(v[letter - 'a'] - idx);
-            idx = v[letter - 'a'];
+        int ans = 0, prev = 0;
+        for(auto& c:word){
+            ans += abs(v[c - 'a'] - prev);
+            prev = v[c - 'a'];
         }
 
         return ans;
