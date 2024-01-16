@@ -9,8 +9,10 @@ public:
         if(mp.find(val) != mp.end()){
             return false;
         }
+
         v.push_back(val);
         mp[val] = v.size() - 1;
+        
         return true;
     }
     
@@ -18,10 +20,13 @@ public:
         if(mp.find(val) == mp.end()){
             return false;
         }
+
         v[mp[val]] = v.back();
         mp[v.back()] = mp[val];
+
         v.pop_back();
         mp.erase(val);
+
         return true;
     }
     
