@@ -4,11 +4,6 @@ public:
         int n = matrix.size();
         vector<int> dp(n);
         vector<int> row(n);
-
-        if(n==1){
-            return matrix[0][0];
-        }
-
         for(int i = 0; i<n; i++){
             dp[i] = matrix[0][i];
         }
