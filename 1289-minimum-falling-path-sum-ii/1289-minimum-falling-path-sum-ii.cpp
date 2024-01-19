@@ -4,6 +4,7 @@ public:
         int n = matrix.size();
         vector<int> dp(n);
         vector<int> row(n);
+        
         for(int i = 0; i<n; i++){
             dp[i] = matrix[0][i];
         }
