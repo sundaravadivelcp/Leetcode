@@ -2,7 +2,7 @@ class Solution {
 public:
     int minFallingPathSum(vector<vector<int>>& matrix) {
         int n = matrix.size(), ans = INT_MAX;
-        vector<int> dir = {-1,0,1};
+        vector<char> dir = {-1,0,1};
         vector<vector<int>>dp (n, vector<int>(n));
 
         if(n==1){
