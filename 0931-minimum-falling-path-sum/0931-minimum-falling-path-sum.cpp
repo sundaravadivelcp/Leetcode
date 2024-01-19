@@ -4,13 +4,13 @@ public:
         int n = matrix.size();
         vector<char> dir = {-1,0,1};
         vector<int>dp (n);
+        vector<int> row(n);
 
         for(int i = 0; i<n; i++){
             dp[i] = matrix[0][i];
         }
 
         for(int i = 1; i < n; i++){
-            vector<int> row(n);
             for(int j = 0; j < n; j++){
                 int prev = INT_MAX;
                 for(int k = 0; k < 3; k++){
