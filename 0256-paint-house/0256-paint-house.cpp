@@ -23,13 +23,7 @@ public:
             dp = row;
         }
 
-        int ans = INT_MAX;
-        
-        for(int i = 0; i<3; i++){       
-            ans = min(ans, dp[i]);
-        }
-
-        return ans;
+        return min(dp[0], min(dp[1], dp[2]));
         
     }
 };
