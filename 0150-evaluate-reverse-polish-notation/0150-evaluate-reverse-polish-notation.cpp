@@ -2,11 +2,8 @@ class Solution {
 public:
     int evalRPN(vector<string>& tokens) {
         stack<int> stk;
-        unordered_set<string> s = {"+", "-", "*", "/"};
         for(string& token:tokens){
-            if(s.find(token) == s.end()){
-                stk.push(stoi(token));
-            } else {
+            if(token == "+" || token ==  "-" || token == "*" || token == "/"){
                 int op1, op2;
                 op2 = stk.top(); stk.pop();
                 op1 = stk.top(); stk.pop();
@@ -19,6 +16,8 @@ public:
                 } else if(token == "/"){
                     stk.push(op1 / op2);
                 }
+            } else {
+                stk.push(stoi(token));
             }
         }
         return stk.top();
