@@ -4,7 +4,13 @@ public:
         int n = temperatures.size();
         vector<int> answer(n, 0);
         
-        for(int i = n - 2; i >= 0; i--){
+        int hottest = 0;
+        
+        for(int i = n - 1; i >= 0; i--){
+            if(temperatures[i] >= hottest) {
+                hottest = temperatures[i];
+                continue;
+            }
             for(int j = i + 1; j < n; j++){
                 if(temperatures[i] < temperatures[j]){
                     answer[i] = j - i;
