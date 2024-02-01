@@ -3,10 +3,9 @@ public:
     vector<vector<int>> divideArray(vector<int>& nums, int k) {
         sort(nums.begin(), nums.end());
         vector<vector<int>> answer;
-
-        int n = nums.size();
+        
         int i = 0;
-        while(i<n){
+        while(i < nums.size()){
             vector<int> v;
             if(nums[i+1] - nums[i] >k || nums[i+2] - nums[i+1] > k || nums[i+2] - nums[i] > k){
                 return {};
