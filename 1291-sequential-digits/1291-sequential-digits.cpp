@@ -1,15 +1,5 @@
 class Solution {
 public:
-    bool isSequential(int num){
-        string s = to_string(num);
-        for(int i = 0; i < s.length() - 1; i++){
-            if(s[i+1] - s[i] != 1){
-                return false;
-            }
-        }
-        return true;
-    }
-
     vector<int> sequentialDigits(int low, int high) {
         vector<int> answer;
         int minLen = to_string(low).length(), maxLen = to_string(high).length();
