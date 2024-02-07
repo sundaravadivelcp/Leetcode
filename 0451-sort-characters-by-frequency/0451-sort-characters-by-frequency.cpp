@@ -16,13 +16,16 @@ public:
         for(auto& it:freq) {
             int n = it.second;
             char c = it.first;
-            bucket[n].append(n, c);
+            bucket[n] += c;
         }
 
-        //form descending sorted string
         for(int i = maxFreq; i>0; i--) {
             if(!bucket[i].empty())
-                res.append(bucket[i]);
+                for (auto c : bucket[i]) {
+                    for (int j = 0; j < i; j++) {
+                        res += c;
+                    }
+                }
         }
         return res;
     }
