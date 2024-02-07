@@ -7,10 +7,7 @@ public:
             mp[s[i]]++;
         }
         multimap<int, char> mm;
- 
-        // Insert every (key-value) pairs from
-        // map M to multimap MM as (value-key)
-        // pairs
+        
         for (auto& it : mp) {
             mm.insert({ it.second, it.first });
         }
