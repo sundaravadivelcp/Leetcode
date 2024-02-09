@@ -8,7 +8,8 @@ public:
         for(int num : nums){
             product *= num;
             result = max(product, result);
-            if(product == 0)product = 1;
+            if(product == 0)
+                product = 1;
             
         }
         
