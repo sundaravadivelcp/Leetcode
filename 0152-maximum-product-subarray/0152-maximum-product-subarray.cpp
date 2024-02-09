@@ -17,7 +17,8 @@ public:
         for(int i=nums.size()-1; i>=0; i--){
             product *= nums[i];
             result = max(product, result);
-            if(product ==0) product = 1;
+            if(product ==0) 
+                product = 1;
         }
         
         return result;
