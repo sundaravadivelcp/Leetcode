@@ -1,14 +1,16 @@
 class Solution {
 public:
     long long largestPerimeter(vector<int>& nums) {
-        long long ans = -1, sum = 0;
+        long long ans = 0;
         sort(nums.begin(), nums.end());
         vector<long long> v;
 
         for(int& num: nums){
-            sum += num;
-            v.push_back(sum);
+            ans += num;
+            v.push_back(ans);
         }
+        
+        ans = -1;
 
         for(int i = nums.size() - 2; i>= 0; i--){
             if(v[i] > nums[i+1]){
